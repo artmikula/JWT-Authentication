@@ -1,15 +1,12 @@
-Certainly! Here's the documentation in Markdown format that you can use for your README file on GitHub:
-
-```
-# API Documentation
+## API Documentation
 
 This API provides functionality for managing posts and user authentication using JSON Web Tokens (JWT).
 
-## Base URL
+### Base URL
 
 The base URL for accessing the API endpoints is `http://localhost:3000` for the posts-related endpoints, and `http://localhost:4000` for the authentication-related endpoints.
 
-## Authentication
+### Authentication
 
 All requests except for the `POST /login` endpoint require authentication. The authentication is done using JWT. The JWT should be included in the `Authorization` header using the `Bearer` scheme.
 
@@ -18,13 +15,13 @@ Example:
 Authorization: Bearer <JWT>
 ```
 
-## Endpoints
+### Endpoints
 
-### POST /login
+#### POST /login
 
 This endpoint is used to authenticate a user and obtain an access token and a refresh token.
 
-#### Request
+##### Request
 - Method: POST
 - URL: `http://localhost:4000/login`
 - Headers:
@@ -36,7 +33,7 @@ This endpoint is used to authenticate a user and obtain an access token and a re
   }
   ```
 
-#### Response
+##### Response
 - Status: 200 OK
 - Body:
   ```json
@@ -46,11 +43,11 @@ This endpoint is used to authenticate a user and obtain an access token and a re
   }
   ```
 
-### POST /token
+#### POST /token
 
 This endpoint is used to request a new access token using a valid refresh token.
 
-#### Request
+##### Request
 - Method: POST
 - URL: `http://localhost:4000/token`
 - Headers:
@@ -62,7 +59,7 @@ This endpoint is used to request a new access token using a valid refresh token.
   }
   ```
 
-#### Response
+##### Response
 - Status: 200 OK
 - Body:
   ```json
@@ -71,11 +68,11 @@ This endpoint is used to request a new access token using a valid refresh token.
   }
   ```
 
-### DELETE /logout
+#### DELETE /logout
 
 This endpoint is used to invalidate a refresh token, effectively logging out the user.
 
-#### Request
+##### Request
 - Method: DELETE
 - URL: `http://localhost:4000/logout`
 - Headers:
@@ -87,20 +84,20 @@ This endpoint is used to invalidate a refresh token, effectively logging out the
   }
   ```
 
-#### Response
+##### Response
 - Status: 204 No Content
 
-### GET /posts
+#### GET /posts
 
 This endpoint is used to retrieve posts for the authenticated user.
 
-#### Request
+##### Request
 - Method: GET
 - URL: `http://localhost:3000/posts`
 - Headers:
   - `Authorization: Bearer <ACCESS_TOKEN>`
 
-#### Response
+##### Response
 - Status: 200 OK
 - Body:
   ```json
@@ -115,7 +112,4 @@ This endpoint is used to retrieve posts for the authenticated user.
 Please note that the `<ACCESS_TOKEN>` and `<REFRESH_TOKEN>` placeholders in the request and response examples should be replaced with the actual tokens obtained during the authentication process.
 
 Remember to start the servers at the respective ports before making requests to the API.
-```
-```
 
-Feel free to copy and paste this Markdown-formatted documentation into your README file on GitHub, making any necessary adjustments or additions to fit your specific project and requirements.
